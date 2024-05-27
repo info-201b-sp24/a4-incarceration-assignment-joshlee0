@@ -1,3 +1,5 @@
+kingCounty <- waState %>%
+    filter(str_detect(county_name, "King County"))
 kingCounty %>%
     ggplot(aes(x = year,)) +
     geom_line(aes(y = black_prison_pop_rate, color = "Black")) +
