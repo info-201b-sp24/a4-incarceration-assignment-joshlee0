@@ -1,6 +1,6 @@
-x_values <- seq(1, 3)
-y_values <- seq(1,3)
-
 library(ggplot2)
-ggplot() +
-  geom_line(aes(x=x_values, y = y_values))
+snohomishCounty <- waState %>%
+  filter(str_detect(county_name, "Snohomish County"))
+snohomishCounty %>% 
+  ggplot(aes(x = white_jail_pop_rate, y = total_jail_pop_rate)) +
+  geom_point()
