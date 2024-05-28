@@ -1,4 +1,3 @@
-library(ggplot2)
 snohomishCounty <- waState %>%
   filter(str_detect(county_name, "Snohomish County"))
 snohomishCounty %>% 
