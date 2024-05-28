@@ -9,63 +9,89 @@ An introduction of the problem domain and a description of the variable(s) you a
 
 ### Summary Information
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
-
-These will likely be calculated using your DPLYR skills, answering questions such as: 
-
-- What is the average value of my variable across all the counties (in the current year)?
-- Where is my variable the highest / lowest?
-- How much has my variable change over the last N years?
-
-Feel free to calculate and report values that you find relevant. Again, remember that the purpose is to think about how these measure of incarceration vary by race.
+The five values that I found focus on the black prison population in the US and their comparison to their white counterparts. 
+The first value I found was the ratio of black prisoners throughout the years compared to the ratio of total prisoners throughout the
+years. This value was 0.388, which is staggeringly high when considering that black people aren't anywhere close to being the most
+populous racial group in the US. The next value that I found was the state in which the highest rate of black people were incarcerated
+since 1970. The state in question was North Carolina, which I think highlights a potential factor of different areas in the US having
+different incarceration rates. I believe that countries in the South, specifically the Bible Belt, would have a higher rate of 
+black incarceration due to affiliation with the Republican Party. The next value that I found was the county with the highest rate
+of black incarceration in Washington State. I thought this value was pertinent because, as a Washington State citizen, it's important
+to recognize its faults as well as to find out the geographical differences within the state. The state with the highest rate of 
+black incarceration is Franklin County. Looking at the electoral college results in 2020, we can see that Franklin County voted red, 
+which, along with North Carolina, voted red. The next value that I found was the year in which the highest rate of black incarceration
+was found. In this case, it was 1991. I thought this was important to highlight because, contrary to what we are usually taught in
+public schools, racism didn't die out in the 1960s. Even in the present today, systemic racism and abuse of the system occurs, and
+seeing the highest rate of black incarceration since 1970 take place in the year 1991 highlights that important fact. The final value
+that I found was the ratio between the average black incarceration rate through the years and the average white incarceration rate through 
+the years. This value was 6.36. This means that, on average, on any given year, the rate of black Americans going to prison was 6.36
+times higher than the rate of white Americans. Even though white people make up the most populous racial group in the US, black
+Americans are still, by far, the most incarcerated group in America. 
 
 ### The Dataset
 
 Who collected the data?  
-How was the data collected or generated?  
+
+The Vera Institute of Justice, a nonprofit dedicated to criminal justice research
+
+How was the data collected or generated? 
+
+The data mostly came from the US Census and the Department of Justice's Bureau of Justice Statistics
+
 Why was the data collected?  
-How many observations (rows) are in your data?  
+
+The data was collected to "inform the public debate on mass incarceration and help guide change by providing easy accessible info"
+
+How many observations (rows) are in your data? 
+
+There are 153811 rows in the datasets concerning all counties, and 1131 obs concerning the counties in WA state
+
 How many features (columns) are in the data?  
+
+In the prison population dataset, there are 36 columns. In the rate for 100k dataset and the WA state dataset, there are 23 columns.
+
 What, if any, ethical questions or questions of power do you need to consider when working with this data?  
+
+I wonder how truthful some of the earlier data in the 70s and 80s would be, as I assume that were would be more incentive to mess
+with the numbers during this tumultous time. 
+
 What are possible limitations or problems with this data?   (at least 200 words)
+
+Because the data only goes back to 1970, we don't get a clear picture of all the problems with the US justice system. The big issue
+is that, because the data starts after the Civil Rights Movement of the 1960s, we don't get data on what the incarceration rates for
+African Americans were before desegregation. I would imagine that the numbers would be significantly higher. Times of peril for 
+groups like Chinese Americans during the Chinese Exclusion Act also aren't included, which would be important to showcase the full picture.
+Another huge problem with the dataset is that it stops at 2018. The US has changed a lot since 2018, especially in regards to the safety
+and awareness around systemic racism and the mistreatment of African Americans in the US. Movements such as the 2020 BLM marches 
+aren't able to be included, which would skew the data one way or the other as the attitude of our society changes. The data does not
+accurately reflect the present day society in which I am completing this project, and so it is not as pertinent as I would like. 
+Overall though, the datasets present are still incredibly useful in analyzing a problem that has plagued minority groups in the US 
+for decades. 
+
 
 
 ### Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
 
-The first chart that you will create and include will show the trend over time of your variable/topic. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - This may mean showing the same measure for different locations or different racial groups. Think carefully about a meaningful comparison of locations (e.g., the top 10 counties in a state, top 10 states, etc.)
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear legend title
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart1_example.R")}
-```
+I included this chart because I felt it highlighted a variety of different patterns. For one, out of the 3 races white, asian, and 
+black, black Americans are incarcerated at a far higher rate than other races, showing an immediate difference between how they are
+treated. In addition, the chart shows that over time, black Americans are being incarcerated at a lower and lower rate almost every
+year in King County. This could be for a variety of reasons, although I believe it is because King County is one of the most liberal
+counties in the US, so they are more keen on social injustices as these. However, even in 2018, black Americans are still incarcerated
+at a much higher rate than what should be expected. 
 
 ### Variable Comparison Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
-
-The second chart that you will create and include will show how two different (continuous) variables are related to one another. Again, think carefully about what such a comparison means and what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- If you choose to add a color encoding (not required), you need a legend for your different color and a clear legend title
+I included this chart because, as a Snohomish County resident, I wanted to compare the rate of white incarceration to the total 
+incarceration rate. This chart showed a clear correlation between the two. The data for minority groups does not show as clear of a
+correlation, and I think this is because regardless of how big or small a county is, minority groups will be policed at a higher rate.
+Because there is a strong correlation between the white rate and total rate, I believe that this shows the white population is policed
+at a normal, indiscriminate way that naturally goes up as a population grows. 
 
 ### Map
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
-
-The last chart that you will create and include will show how a variable is distributed geographically. Again, think carefully about what such a comparison means and what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Your map needs a title
-- Your color scale needs a legend with a clear label
-- Use a map based coordinate system to set the aspect ratio of your map
+I included this chart because I wanted to see how jail rates varied across states and to see if my claim that Republican states
+would have a disproportionally higher rate of minority jai rates. The map seemed to disprove this claim, as almost every state
+had a similar rate of black incarceration. The only exceptions to this rule seemed to be Utah, which could be explained by a variety
+of reasons that we have no way of qualifying. 
 
