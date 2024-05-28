@@ -1,5 +1,5 @@
 ---
-title: "A3: Incarceration"
+title: "A4: Incarceration"
 output: html_document
 ---
 
@@ -71,7 +71,26 @@ for decades.
 
 
 ### Trends Over Time Chart
-
+```{r}
+waState <- read.csv("https://github.com/melaniewalsh/Neat-Datasets/raw/main/us-prison-jail-rates-1990-WA.csv")
+jailPop <- read.csv("https://github.com/melaniewalsh/Neat-Datasets/blob/main/us-jail-pop.csv?raw=true")
+prisonPop <- read.csv("https://github.com/melaniewalsh/Neat-Datasets/blob/main/us-prison-pop.csv?raw=true")
+rate100k <- read.csv("https://github.com/melaniewalsh/Neat-Datasets/blob/main/us-prison-jail-rates.csv?raw=true")
+library(ggplot2)
+library(dplyr)
+library(tidyverse)
+kingCounty <- waState %>%
+    filter(str_detect(county_name, "King County"))
+kingCounty %>%
+    ggplot(aes(x = year,)) +
+    geom_line(aes(y = black_prison_pop_rate, color = "Black")) +
+    geom_line(aes(y = aapi_prison_pop_rate, color = "AAPI")) +
+    geom_line(aes(y = white_prison_pop_rate, color = "White")) +
+    labs(title = "Prison Rates by race, King County",
+         x = "Year",
+         y = "Rate of Incarceration",
+         color = "Race")
+```
 
 I included this chart because I felt it highlighted a variety of different patterns. For one, out of the 3 races white, asian, and 
 black, black Americans are incarcerated at a far higher rate than other races, showing an immediate difference between how they are
@@ -82,6 +101,18 @@ at a much higher rate than what should be expected.
 
 ### Variable Comparison Chart
 
+```{r}
+snohomishCounty <- waState %>%
+  filter(str_detect(county_name, "Snohomish County"))
+snohomishCounty %>% 
+    ggplot(aes(x = white_jail_pop_rate, y = total_jail_pop_rate)) +
+    geom_point() +
+    labs(title = "White Jail Rate vs Total Jail Rate",
+        x = "White Jail Rate",
+        y = "Total Jail Rate")
+```
+
+
 I included this chart because, as a Snohomish County resident, I wanted to compare the rate of white incarceration to the total 
 incarceration rate. This chart showed a clear correlation between the two. The data for minority groups does not show as clear of a
 correlation, and I think this is because regardless of how big or small a county is, minority groups will be policed at a higher rate.
@@ -89,6 +120,29 @@ Because there is a strong correlation between the white rate and total rate, I b
 at a normal, indiscriminate way that naturally goes up as a population grows. 
 
 ### Map
+
+```{r}
+library(maps)
+blackRate <- rate100k %>%
+  filter(year == 2018) %>%
+  mutate(stateFull = state.name[match(state, state.abb)])
+state_shape <- map_data("state") %>%
+  mutate(stateFull = state.name[match(region, tolower(state.name))]) %>%
+  left_join(blackRate, by = "stateFull")
+ggplot(state_shape) +
+    geom_polygon(
+        mapping = aes(x = long, y = lat, group = group, fill = black_jail_pop_rate),
+        color = "white",
+        size = 0.1
+    ) +
+    coord_map() +
+    scale_fill_continuous(low = "#132B43", high = "red") +
+    labs(
+        fill = "Black Jail Rate",
+        title = "Black Jail Rate across US"
+    )+
+    theme_minimal()
+```
 
 I included this chart because I wanted to see how jail rates varied across states and to see if my claim that Republican states
 would have a disproportionally higher rate of minority jai rates. The map seemed to disprove this claim, as almost every state
